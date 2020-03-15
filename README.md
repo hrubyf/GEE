@@ -1,4 +1,5 @@
 #  Google Earth Engine (GEE)
+Registrarse en https://code.earthengine.google.com/
 ## Video 1
 a) Seleccionar una imagen especifica de Sentinel
 ```
