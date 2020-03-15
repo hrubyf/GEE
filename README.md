@@ -6,5 +6,5 @@ var sentinel2 = ee.Image("COPERNICUS/S2/20191217T182751_20191217T183434_T11SNR")
 ```
 b) Ver los detalles de la imagen en la consola
 ```
-print sentinel2
+print(sentinel2)
 ```
