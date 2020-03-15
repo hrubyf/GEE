@@ -28,5 +28,13 @@ Map.addLayer(sent2_image, {bands:["B4","B3","B2"], min:0, max:3000}, "Ensenada -
 ```
 c) Calcular NDVI (https://developers.google.com/earth-engine/tutorial_api_06)
 ```
-var ndvi = sent2_image.normalizedDifference(['B5', 'B4']).rename('NDVI');
+var ndvi = sent2_image.normalizedDifference(["B5", "B4"]).rename("NDVI");
+```
+d) Definir parametros de visualización para el NDVI
+```
+var ndviParams = {min: -1, max: 1, palette: ["blue", "white", "green"]};
+```
+e) Visualizar NDVI en el mapa
+```
+Map.addLayer(ndvi, ndviParams, "NDVI image");
 ```
