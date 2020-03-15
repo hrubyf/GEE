@@ -13,9 +13,11 @@ c) Visualizar la imagen en el mapa
 Map.addLayer(sentinel2, {bands:["B4","B3","B2"], min:0, max:3000}, "Ensenada - true color");
 ```
 ## Video 2
-var image = ee.Image(sentinel2
+```
+var sent2_image = ee.Image(sent2_collection
 .filterDate("2019-12-01", "2019-12-31")
 .filterBounds(ensenada)
 .sort("CLOUD_COVERAGE_ASSESSMENT")
 .first()
 );
+```
