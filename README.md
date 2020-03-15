@@ -13,6 +13,7 @@ c) Visualizar la imagen en el mapa
 Map.addLayer(sentinel2, {bands:["B4","B3","B2"], min:0, max:3000}, "Ensenada - true color");
 ```
 ## Video 2
+a) Filtrar imagen
 ```
 var sent2_image = ee.Image(sent2_collection
 .filterDate("2019-12-01", "2019-12-31")
@@ -20,4 +21,8 @@ var sent2_image = ee.Image(sent2_collection
 .sort("CLOUD_COVERAGE_ASSESSMENT")
 .first()
 );
+```
+b) Visualizar la imagen en el mapa
+```
+Map.addLayer(sent2_image, {bands:["B4","B3","B2"], min:0, max:3000}, "Ensenada - true color");
 ```
