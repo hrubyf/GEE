@@ -52,3 +52,28 @@ b) Generar un mosaico de imagenes
 ```
 Map.addLayer(time_filter.median(), {bands:["B4","B3","B2"], min:0, max:3000}, "Ensenada - median");
 ```
+## Video 4
+a) Definir funcion para calcular NDVI para cada imagen de una colección de escenas
+```
+function add_ndvi_band(image){
+var ndvi = image.normalizedDifference(["B8","B4"]);
+return image.addBands(ndvi);
+}
+```
+b) Filtrar imagen por fecha
+```
+var time_filter = sent2_collection.filterDate("2019-12-01", "2019-12-31");
+```
+c) Ejecutar la función (vease paso a) para cada imagen seleccionado 
+```
+var time_filter_ndvi = time_filter.map(add_ndvi_band);
+```
+d) Generar un mosaico del NDVI (a base del median)
+```
+Map.addLayer(time_filter.median(), {bands:["B4","B3","B2"], min:0, max:3000}, "Ensenada - true color");
+Map.addLayer(time_filter_ndvi.median(), {bands:"nd", min: -1, max: 1}, "NDVI");
+```
+e) Calcular serie de tiempo para el NDVI
+```
+print(ui.Chart.image.series(time_filter_ndvi.select("nd"),poi));
+```
