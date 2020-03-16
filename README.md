@@ -42,3 +42,13 @@ e) Visualizar NDVI en el mapa
 ```
 Map.addLayer(ndvi, ndviParams, "NDVI image");
 ```
+## Video 3
+a) Filtrar imagen por fecha
+```
+var time_filter = sent2_collection.filterDate("2019-01-01", "2019-01-03");
+Map.addLayer(time_filter, {bands:["B4","B3","B2"], min:0, max:3000}, "Ensenada - true color");
+```
+b) Generar un mosaico de imagenes
+```
+Map.addLayer(time_filter.median(), {bands:["B4","B3","B2"], min:0, max:3000}, "Ensenada - median");
+```
