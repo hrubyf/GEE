@@ -77,3 +77,12 @@ e) Calcular serie de tiempo para el NDVI
 ```
 print(ui.Chart.image.series(time_filter_ndvi.select("nd"),poi));
 ```
+## Video 5
+a) Definir parametros para exportar datos como imagen de GEE
+```
+var exportar_mapa = time_filter_ndvi.median().visualize({bands: ['nd', 'nd', 'nd'],max: 1.0});
+```
+b) Exportar imagen georreferenciado
+```
+Export.image.toDrive({image: exportar_mapa, description: 'ndvi',  scale: 10});
+```
